@@ -1,0 +1,8 @@
+T= 298.0            ! Temperature (K)
+P= 101325           ! Pression (Pascal) 
+M= 16               ! Molecular Mass (atomic unit)
+sigma= 1.0          ! If molecule in gas phse: sigma = 2 for linear molecules with a symmetry center, 1 in the other cases.
+Escf= -22.50792722  ! SCF Energy (a.u.)
+I1= 0.030333e-45    ! Moment(s) of inertia (Kg/m**2) for the gas phase molecule. If lines commented, no gas phase molecule. 
+I2= 0.019782e-45
+I3= 0.010551e-45
