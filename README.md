@@ -44,7 +44,7 @@ python3 SNAPE.py
 vibrations and snape.inp file must be in the same directory of the .py file.
 
 
-****DEPENDENCIES***
+***DEPENDENCIES***
 
 - Scipy
 
