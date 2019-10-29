@@ -44,6 +44,10 @@ python3 SNAPE.py
 vibrations and snape.inp file must be in the same directory of the .py file.
 
 
+*****DEPENDENCIES***
+
+- Scipy
+
 *****EXAMPLE*****
 
 The files are here provided for the case of H2O at 298 K and 1 atm. 
