@@ -207,50 +207,50 @@ def write_ouput(Escf,T,sigma,M,nI,v,P,ThetaRot, ThetaVib, qrot, qtr, ZPE, Uvib, 
          o.write("********SNAPE OUTPUT******************\t")
          o.write("\n")
          o.write("INPUT PARAMETERS\n")
-         o.write("T" + sp + "=" + sp + str(T) + sp + "K" "\n") 
-         o.write("P" + sp + "=" + sp + str(P) + sp + "Pascal" "\n") 
-         o.write("M" + sp + "=" + sp + str(M) + sp + "a.u." "\n") 
-         o.write("sigma" + sp + "=" + sp + str(sigma) + "\n") 
-         o.write("Escf" + sp + "=" + sp + str(Escf) + sp + "a.u." +  "\n") 
+         o.write("T= {} {}".format(T, "K",) + "\n")
+         o.write("P= {} {}".format(P, "Pascal",) + "\n")
+         o.write("M= {} {}".format(M, "a.u.",) + "\n")
+         o.write("sigma= {}".format(sigma) + "\n")
+         o.write("Escf= {} {}".format(Escf, "Hartree") + "\n")
          o.write("\n")
          
          if len(nI) > 0:
-             o.write("MOMEMTS(S) OF INERTIA(Kg/m**2)" + sp + "=" + sp + str(len(nI)) +"\n") 
-             #o.write("\n")
+             o.write("MOMENTS OF INERTIA {} = {}".format("(Kg/m**2)", len(nI)) + "\n")
              for i in range (len(nI)):
-                 o.write(str(i) + sp + "=" + sp + str(nI[i]) + sp + "\n")
+                 o.write("{} {}".format(i, nI[i]) + "\n")
              o.write("\n")
              
-             o.write("TRANSLATIONAL ENERGY" + sp + "=" + sp + str(Utr) + sp + "J/mol" + "\n") 
-             o.write("TRANSLATIONAL ENTROPY" + sp + "=" + sp + str(Str)  + sp +  "J/mol*K" + "\n") 
+             o.write("TRANLATIONAL ENERGY = {} {}".format(Utr, "J/mol") + "\n")
+             o.write("TRANLATIONAL ENTROPY = {} {}".format(Str, "J/mol*K") + "\n")
+             
 
              
          else:
              o.write("NO MOMENT OF INERTIA" + "\n") 
             
          o.write("\n")
-         o.write("RT" + sp + "=" + sp + str(RT) + sp + "J/mol" "\n") 
+         o.write("RT = {} {}".format(RT, "J/mol") + "\n") 
          o.write("\n")
          if len(nI) > 0:
-             o.write("ROTATIONAL TEMPERATURES(1/K)" + sp + "=" + sp + str(len(ThetaRot)) +"\n") 
+             o.write("ROTATIONAL TEMPERATURES(1/K) = {}".format(len(ThetaRot)) + "\n")
              for i in range (len(ThetaRot)):
-                 o.write(str(i) + sp + "=" + sp + str(ThetaRot[i]) + sp + "\n")
+                 o.write("{} = {}".format(i, ThetaRot[i]) + "\n") 
              o.write("\n")
                  
-             o.write("ROTATIONAL ENERGY" + sp + "=" + sp + str(Urot) + sp + "J/mol" + "\n") 
-             o.write("ROTATIONAL ENTROPY" + sp + "=" + sp + str(Srot) + sp + "J/mol*K" + "\n") 
+             o.write("ROTATIONAL ENERGY = {} {}".format(Urot, "J/mol") + "\n") 
+             o.write("ROTATIONAL ENTROPY = {} {}".format(Srot, "J/mol K") + "\n")
          else:
              o.write("NO ROTATIONAL TEMPERATURE" + "\n") 
 
          o.write("\n")
-         o.write("VIBRATIONAL TEMPERATURES(1/K)" + sp + "=" + sp + str(len(ThetaVib)) +"\n") 
+         o.write("VIBRATIONAL TEMPERATURES(1/K) = {}".format(len(ThetaVib)) + "\n") 
          for i in range (len(ThetaVib)):
-             o.write(str(i) + sp + "=" + sp + str(ThetaVib[i]) + sp + "\n")
+             o.write("{} = {}".format(i, ThetaVib[i]) + "\n")
          o.write("\n")
-         o.write("ZERO POINT ENERGY (ZPE)" + sp + "=" + sp + str(ZPE ) + sp + "J/mol" + "\n") 
-         o.write("VIBRATIONAL ENERGY" + sp + "=" + sp + str(Uvib) + sp + "J/mol" + "\n") 
-         o.write("VIBRATIONAL ENTROPY" + sp + "=" + sp + str(Svib) + sp + "J/mol*K" + "\n") 
-       
+         o.write("ZERO POINT ENERGY (ZPE) = {} {}".format(ZPE, "J/mol") + "\n") 
+         o.write("VIBRATIONAL ENERGY = {} {}".format(Uvib, "J/mol") + "\n") 
+         o.write("VIBRATIONAL ENTROPY = {} {}".format(Svib, "J/mol*K") + "\n") 
+         
          Escf = Escf*(2623*1000) 
          Stot = Str + Srot + Svib
          Utot = Escf + Utr + Urot + Uvib
@@ -258,11 +258,11 @@ def write_ouput(Escf,T,sigma,M,nI,v,P,ThetaRot, ThetaVib, qrot, qtr, ZPE, Uvib, 
          G = H - (T*Stot)
 
          o.write("\n")
-         o.write("Stot" + sp + "=" + sp + str(Stot) + sp + "J/mol*K" + "\n") 
-         o.write("Utot" + sp + "=" + sp + str(Utot) + sp + "J/mol" + "\n") 
-         o.write("H" + sp + "=" + sp + str(H) + sp + "J/mol" + "\n") 
-         o.write("G" + sp + "=" + sp + str(G) + sp + "J/mol" + "\n") 
-
+         o.write("Stot = {} {}".format(Stot, "J/mol*K") + "\n") 
+         o.write("Utot = {} {}".format(Utot, "J/mol*K") + "\n") 
+         o.write("H = {} {}".format(H, "J/mol") + "\n") 
+         o.write("G = {} {}".format(G, "J/mol") + "\n") 
+         
 Rotational_Temperatures(T,nI)
 Rotational_Partition_Function(T, ThetaRot, sigma)
 Translational_Partition_Function(T,M,P)
