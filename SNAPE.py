@@ -220,8 +220,8 @@ def write_ouput(Escf,T,sigma,M,nI,v,P,ThetaRot, ThetaVib, qrot, qtr, ZPE, Uvib, 
                  o.write("{} {}".format(i, nI[i]) + "\n")
              o.write("\n")
              
-             o.write("TRANLATIONAL ENERGY = {} {}".format(Utr, "J/mol") + "\n")
-             o.write("TRANLATIONAL ENTROPY = {} {}".format(Str, "J/mol*K") + "\n")
+             o.write("TRANLATIONAL ENERGY = {:6f} {}".format(Utr, "J/mol") + "\n")
+             o.write("TRANLATIONAL ENTROPY = {:6f} {}".format(Str, "J/mol*K") + "\n")
              
 
              
@@ -229,27 +229,27 @@ def write_ouput(Escf,T,sigma,M,nI,v,P,ThetaRot, ThetaVib, qrot, qtr, ZPE, Uvib, 
              o.write("NO MOMENT OF INERTIA" + "\n") 
             
          o.write("\n")
-         o.write("RT = {} {}".format(RT, "J/mol") + "\n") 
+         o.write("RT = {:6f} {}".format(RT, "J/mol") + "\n") 
          o.write("\n")
          if len(nI) > 0:
              o.write("ROTATIONAL TEMPERATURES(1/K) = {}".format(len(ThetaRot)) + "\n")
              for i in range (len(ThetaRot)):
-                 o.write("{} = {}".format(i, ThetaRot[i]) + "\n") 
+                 o.write("{} = {:6f}".format(i, ThetaRot[i]) + "\n") 
              o.write("\n")
                  
-             o.write("ROTATIONAL ENERGY = {} {}".format(Urot, "J/mol") + "\n") 
-             o.write("ROTATIONAL ENTROPY = {} {}".format(Srot, "J/mol K") + "\n")
+             o.write("ROTATIONAL ENERGY = {:6f} {}".format(Urot, "J/mol") + "\n") 
+             o.write("ROTATIONAL ENTROPY = {:6f} {}".format(Srot, "J/mol K") + "\n")
          else:
              o.write("NO ROTATIONAL TEMPERATURE" + "\n") 
 
          o.write("\n")
          o.write("VIBRATIONAL TEMPERATURES(1/K) = {}".format(len(ThetaVib)) + "\n") 
          for i in range (len(ThetaVib)):
-             o.write("{} = {}".format(i, ThetaVib[i]) + "\n")
+             o.write("{} = {:6f}".format(i, ThetaVib[i]) + "\n")
          o.write("\n")
-         o.write("ZERO POINT ENERGY (ZPE) = {} {}".format(ZPE, "J/mol") + "\n") 
-         o.write("VIBRATIONAL ENERGY = {} {}".format(Uvib, "J/mol") + "\n") 
-         o.write("VIBRATIONAL ENTROPY = {} {}".format(Svib, "J/mol*K") + "\n") 
+         o.write("ZERO POINT ENERGY (ZPE) = {:6f} {}".format(ZPE, "J/mol") + "\n") 
+         o.write("VIBRATIONAL ENERGY = {:6f} {}".format(Uvib, "J/mol") + "\n") 
+         o.write("VIBRATIONAL ENTROPY = {:6f} {}".format(Svib, "J/mol*K") + "\n") 
          
          Escf = Escf*(2623*1000) 
          Stot = Str + Srot + Svib
@@ -258,10 +258,10 @@ def write_ouput(Escf,T,sigma,M,nI,v,P,ThetaRot, ThetaVib, qrot, qtr, ZPE, Uvib, 
          G = H - (T*Stot)
 
          o.write("\n")
-         o.write("Stot = {} {}".format(Stot, "J/mol*K") + "\n") 
-         o.write("Utot = {} {}".format(Utot, "J/mol*K") + "\n") 
-         o.write("H = {} {}".format(H, "J/mol") + "\n") 
-         o.write("G = {} {}".format(G, "J/mol") + "\n") 
+         o.write("Stot = {:6f} {} {}".format(Stot, "J/mol*K","\n")) 
+         o.write("Utot = {:6f} {}".format(Utot, "J/mol*K") + "\n") 
+         o.write("H = {:6f} {}".format(H, "J/mol") + "\n") 
+         o.write("G = {:6f} {}".format(G, "J/mol") + "\n") 
          
 Rotational_Temperatures(T,nI)
 Rotational_Partition_Function(T, ThetaRot, sigma)
