@@ -16,9 +16,9 @@ Snape calculates the different contributions to S and H, considering the differe
 
 SNAPE requires two input files:
 
-- vibrations -- where the normal modes (in 1/cm) are listed in one column. 
+- vibrations -- where the vibrational modes (cm**-1) are listed in one column. 
 
-- snape.inp  -- file where all the input parameters are specified with the following units of measure:
+- snape.inp  -- input file where all the input parameters are specified with the following order and units:
                 
                 T =  Temmperature (Kelvin)
                 P =  Pressure (Pascal)
